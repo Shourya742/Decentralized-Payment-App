@@ -2,29 +2,38 @@ import React, { useContext, useState } from "react";
 import { AppState } from "../App";
 
 const Header = () => {
-  const {ethereum} = window;
+  const { ethereum } = window;
   const App = useContext(AppState);
   const [showChains, setShowChains] = useState(false);
 
   const changeToRosten = async () => {
-    await ethereum.request({method: "wallet_switchEthereumChain", params: [{chainId: "0x3"}]})
-    setShowChains(false)
-  }
-  
+    await ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x3" }],
+    });
+    setShowChains(false);
+  };
+
   const changeToPolygon = async () => {
-    await ethereum.request({method: "wallet_switchEthereumChain", params: [{chainId: "0x13881"}]})
-    setShowChains(false)
-  }
-  
+    await ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x13881" }],
+    });
+    setShowChains(false);
+  };
+
   const changeToRinkeby = async () => {
-    await ethereum.request({method: "wallet_switchEthereumChain", params: [{chainId: "0x4"}]})
-    setShowChains(false)
-  }
+    await ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x4" }],
+    });
+    setShowChains(false);
+  };
 
   return (
     <div className="w-full h-1/4 pt-4 flex justify-between items-start">
       {/* Logo */}
-      <img className="h-12 ml-2" src="paypal.png" />
+      <img className="h-12 ml-2" src="download.jpg" />
 
       <div className="flex justify-between items-start">
         {/* Wallet */}
@@ -43,7 +52,10 @@ const Header = () => {
         </div>
 
         {/* Chains Section */}
-        <div onClick={() => setShowChains(true)} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer bg-black text-white rounded-lg flex justify-between items-center">
+        <div
+          onClick={() => setShowChains(true)}
+          className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer bg-black text-white rounded-lg flex justify-between items-center"
+        >
           {App.chain == "Ropsten" || App.chain == "Rinkeby" ? (
             <img className="h-6 mr-2" src="ethereum-eth.svg" />
           ) : (
@@ -55,26 +67,38 @@ const Header = () => {
         {/* All Chains */}
         <div className={`${showChains ? "" : "hidden"} absolute right-0 z-50`}>
           {/* Ropsten */}
-          <div onClick={changeToRosten} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
+          <div
+            onClick={changeToRosten}
+            className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center"
+          >
             <img className="h-6 mr-2" src="ethereum-eth.svg" />
             Ropsten
           </div>
 
           {/* Polygon */}
-          <div onClick={changeToPolygon} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
+          <div
+            onClick={changeToPolygon}
+            className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center"
+          >
             <img className="h-6 mr-2" src="polygon.png" />
             Polygon
           </div>
 
           {/* Rinkeby */}
-          <div onClick={changeToRinkeby} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
+          <div
+            onClick={changeToRinkeby}
+            className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center"
+          >
             <img className="h-6 mr-2" src="ethereum-eth.svg" />
             Rinkeby
           </div>
 
           {/* Close The chains */}
-          <div onClick={() => setShowChains(false)} className="text-xl py-1 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer bg-red-600 text-white rounded-lg flex justify-center items-center">
-          Close
+          <div
+            onClick={() => setShowChains(false)}
+            className="text-xl py-1 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer bg-red-600 text-white rounded-lg flex justify-center items-center"
+          >
+            Close
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"

@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <div className="min-w-full h-4/5 flex justify-center flex-col items-center">
-      <img className="h-20" src="download.png" />
+      <img className="h-20" src="download.jpg" />
       <div className="w-1/3 h-40 mt-4 bg-black bg-opacity-70 p-2 rounded-lg shadow-lg border-opacity-40 border-4 border-black flex flex-col justify-center items-center">
         <h1 className="text-white text-2xl font-medium text-center">Login</h1>
         {ethereum != undefined ? (
